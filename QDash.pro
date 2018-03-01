@@ -10,6 +10,10 @@ QT       += network
 
 CONFIG += c++11
 
+DESTDIR = bin
+
+INCLUDEPATH += include
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = QDash
@@ -28,19 +32,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    client.cpp \
-    indicator.cpp \
-    riomessage.cpp \
-    scheduler.cpp
+        src/main.cpp \
+        src/mainwindow.cpp \
+    src/client.cpp \
+    src/indicator.cpp \
+    src/riomessage.cpp \
+    src/scheduler.cpp
 
 HEADERS += \
-        mainwindow.h \
-    client.h \
-    indicator.h \
-    riomessage.h \
-    scheduler.h
+        include/mainwindow.h \
+    include/client.h \
+    include/indicator.h \
+    include/riomessage.h \
+    include/scheduler.h
 
 FORMS += \
-        mainwindow.ui
+        forms/mainwindow.ui
