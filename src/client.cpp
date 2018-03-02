@@ -6,7 +6,8 @@
 Client::Client(QObject *parent , Indicator *indicator) : QObject(parent) ,
     mp_indicator(indicator)
 {
-    // Nothing
+    m_sentThisHandshake = false;
+    m_receivedThisHandshake = false;
 }
 
 
@@ -38,6 +39,18 @@ void Client::AddMessage(const RioMessage MSG)
 }
 
 
+bool Client::SentThisHandshake()
+{
+    return m_sentThisHandshake;
+}
+
+
+bool Client::ReceivedThisHandshake()
+{
+    return m_receivedThisHandshake;
+}
+
+
 void Client::Connected()
 {
     qDebug() << "Connected to rio!" << endl;
@@ -57,7 +70,12 @@ void Client::Disconnected()
 
 void Client::ReadyRead()
 {
-    qDebug() << mp_socket->readLine() << endl;
+    if(!m_receivedThisHandshake)
+    {
+        qDebug() << mp_socket->readLine() << endl;
+
+        m_receivedThisHandshake = true;
+    }
 }
 
 
@@ -69,7 +87,7 @@ void Client::Tick()
 
         Connect();
     }
-    else if(mp_socket->state() == QTcpSocket::ConnectedState)
+    else if(mp_socket->state() == QTcpSocket::ConnectedState && !m_sentThisHandshake)
     {
         std::string finalMessage = "";
 
@@ -81,9 +99,19 @@ void Client::Tick()
         finalMessage += "\n";
 
         m_messageList.clear();
+
         mp_socket->write(finalMessage.c_str());
 
         mp_socket->waitForBytesWritten();
+
+        m_sentThisHandshake = true;
+    }
+
+
+    if(m_sentThisHandshake && m_receivedThisHandshake)
+    {
+        m_sentThisHandshake = false;
+        m_receivedThisHandshake = false;
     }
 }
 

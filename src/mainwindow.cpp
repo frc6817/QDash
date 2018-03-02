@@ -62,8 +62,11 @@ void MainWindow::on_drivetrainPrecisionSlider_valueChanged(int value)
 
 void MainWindow::UpdateServerFromUi()
 {
-    mp_client->AddMessage(RioMessage("Drive" , std::to_string(ui->drivetrainSlider->value())));
-    mp_client->AddMessage(RioMessage("PDrive" , std::to_string(ui->drivetrainPrecisionSlider->value())));
+    if(!mp_client->SentThisHandshake())
+    {
+        mp_client->AddMessage(RioMessage("Drive" , std::to_string(ui->drivetrainSlider->value())));
+        mp_client->AddMessage(RioMessage("PDrive" , std::to_string(ui->drivetrainPrecisionSlider->value())));
+    }
 }
 
 

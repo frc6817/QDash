@@ -32,9 +32,20 @@ public:
     void AddMessage(const RioMessage MSG);
 
 
+    bool SentThisHandshake();
+
+
+    bool ReceivedThisHandshake();
+
+
 private:
     QTcpSocket *mp_socket = nullptr;
     QString m_socketData;
+
+    // Handshake refers to a single instance of a message sent and received
+    // FROM THIS CLIENT'S PERSPECTIVE
+    bool m_sentThisHandshake;
+    bool m_receivedThisHandshake;
 
     Indicator *mp_indicator;
     std::vector<RioMessage> m_messageList;
