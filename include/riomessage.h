@@ -8,8 +8,8 @@
 class RioMessage
 {
 public:
-    const std::string MSG_END = "`";
-    const std::string TAG_END = "|";
+    const static std::string MSG_END;
+    const static std::string TAG_END;
 
 
     RioMessage(const std::string TAG , const std::string MSG);

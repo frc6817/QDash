@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc0741bd-e774-47ec-8f19-7a27279c7415" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/client.h" afterPath="$PROJECT_DIR$/../../include/client.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../src/client.cpp" afterPath="$PROJECT_DIR$/../../src/client.cpp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../include/notifier.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../src/notifier.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../QDash.pro" afterPath="$PROJECT_DIR$/../../QDash.pro" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../forms/mainwindow.ui" afterPath="$PROJECT_DIR$/../../forms/mainwindow.ui" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/mainwindow.h" afterPath="$PROJECT_DIR$/../../include/mainwindow.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/riomessage.h" afterPath="$PROJECT_DIR$/../../include/riomessage.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../src/mainwindow.cpp" afterPath="$PROJECT_DIR$/../../src/mainwindow.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../src/riomessage.cpp" afterPath="$PROJECT_DIR$/../../src/riomessage.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,8 +35,8 @@
       <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="261">
+              <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -293,8 +300,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="261">
+          <caret line="50" column="21" lean-forward="false" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
           <folding />
         </state>
       </provider>

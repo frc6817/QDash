@@ -76,7 +76,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="configTab">
        <attribute name="title">
@@ -369,7 +369,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="telmetLeftEncValue">
+              <widget class="QLabel" name="leftEncValue">
                <property name="text">
                 <string>0</string>
                </property>
@@ -400,7 +400,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_7">
+              <widget class="QLabel" name="rightEncValue">
                <property name="text">
                 <string>0</string>
                </property>
@@ -431,7 +431,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_9">
+              <widget class="QLabel" name="flipEncValue">
                <property name="text">
                 <string>0</string>
                </property>
@@ -469,7 +469,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_11">
+              <widget class="QLabel" name="yawValue">
                <property name="text">
                 <string>0</string>
                </property>
@@ -500,7 +500,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_13">
+              <widget class="QLabel" name="pitchValue">
                <property name="text">
                 <string>0</string>
                </property>
@@ -531,7 +531,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLabel" name="label_15">
+              <widget class="QLabel" name="rollValue">
                <property name="text">
                 <string>0</string>
                </property>

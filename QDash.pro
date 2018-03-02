@@ -37,14 +37,16 @@ SOURCES += \
     src/client.cpp \
     src/indicator.cpp \
     src/riomessage.cpp \
-    src/scheduler.cpp
+    src/scheduler.cpp \
+    src/notifier.cpp
 
 HEADERS += \
         include/mainwindow.h \
     include/client.h \
     include/indicator.h \
     include/riomessage.h \
-    include/scheduler.h
+    include/scheduler.h \
+    include/notifier.h
 
 FORMS += \
         forms/mainwindow.ui

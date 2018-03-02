@@ -1,0 +1,8 @@
+LEnc- Left Drivetrain encoder
+REnc- Right Drivetrain encoder
+FEnc- Flip encoder
+Yaw- yaw
+Roll- roll
+Pitch- pitch
+
+** EVERYTHING ELSE GOES TO THE LOG BOX **

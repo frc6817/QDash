@@ -9,6 +9,7 @@
 #include "scheduler.h"
 #include "indicator.h"
 #include "client.h"
+#include "notifier.h"
 
 
 namespace Ui
@@ -29,9 +30,31 @@ private slots:
 
     void on_drivetrainPrecisionSlider_valueChanged(int value);
 
+    void on_drivetrainSlider_valueChanged(int value);
+
     void UpdateServerFromUi();
 
-    void on_drivetrainSlider_valueChanged(int value);
+
+    void UpdateLeftEncoder(int encoderCount);
+
+
+    void UpdateRightEncoder(int encoderCount);
+
+
+    void UpdateFlipEncoder(int encoderCount);
+
+
+    void UpdateYaw(double yaw);
+
+
+    void UpdateRoll(double roll);
+
+
+    void UpdatePitch(double pitch);
+
+
+    void UpdateLogBox(std::string message);
+
 
 private:
     const QUrl _cameraUrl;
@@ -42,6 +65,7 @@ private:
     Scheduler *mp_scheduler;
     Indicator *mp_ind;
     Client *mp_client;
+    Notifier *mp_notifier;
 };
 
 

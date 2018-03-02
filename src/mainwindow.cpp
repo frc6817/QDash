@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     mp_ind = new Indicator(ui->indicator , mp_scene);
     mp_client = new Client(nullptr , mp_ind);
     mp_scheduler = new Scheduler();
+    mp_notifier = new Notifier;
 
 
     connect(mp_client , SIGNAL(ClientConnected()) , mp_ind , SLOT(SetConnected()));
@@ -20,6 +21,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(mp_scheduler , SIGNAL(tick()) , mp_client , SLOT(Tick()));
     connect(mp_scheduler , SIGNAL(tick()) , this , SLOT(UpdateServerFromUi()));
 
+    connect(mp_notifier , SIGNAL(NotifyLeftEncoder(int)) , this , SLOT(UpdateLeftEncoder(int)));
+    connect(mp_notifier , SIGNAL(NotifyRightEncoder(int)) , this , SLOT(UpdateRightEncoder(int)));
+    connect(mp_notifier , SIGNAL(NotifyFlipperEncoder(int)) , this , SLOT(UpdateFlipEncoder(int)));
+    connect(mp_notifier , SIGNAL(NotifyYaw(double)) , this , SLOT(UpdateYaw(double)));
+    connect(mp_notifier , SIGNAL(NotifyRoll(double)) , this , SLOT(UpdateRoll(double)));
+    connect(mp_notifier , SIGNAL(NotifyPitch(double)) , this , SLOT(UpdatePitch(double)));
+    connect(mp_notifier , SIGNAL(NotifyLog(std::string)) , this , SLOT(UpdateLogBox(std::string)));
 
     mp_scheduler->start();
 
@@ -30,8 +38,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     mp_ind->SetDisconnected();
-//    mp_ind->SetConnected();
-
     mp_client->Connect();
 }
 
@@ -60,6 +66,17 @@ void MainWindow::on_drivetrainPrecisionSlider_valueChanged(int value)
 }
 
 
+void MainWindow::on_drivetrainSlider_valueChanged(int value)
+{
+    ui->drivetrainThrottleLabel->setText(QString::number(value) + "%");
+
+    if(ui->drivetrainPrecisionSlider->value() > value)
+    {
+        ui->drivetrainPrecisionSlider->setValue(value);
+    }
+}
+
+
 void MainWindow::UpdateServerFromUi()
 {
     if(!mp_client->SentThisHandshake())
@@ -70,12 +87,43 @@ void MainWindow::UpdateServerFromUi()
 }
 
 
-void MainWindow::on_drivetrainSlider_valueChanged(int value)
+void MainWindow::UpdateLeftEncoder(int encoderCount)
 {
-    ui->drivetrainThrottleLabel->setText(QString::number(value) + "%");
+    ui->leftEncValue->setText(QString::number(encoderCount));
+}
 
-    if(ui->drivetrainPrecisionSlider->value() > value)
-    {
-        ui->drivetrainPrecisionSlider->setValue(value);
-    }
+
+void MainWindow::UpdateRightEncoder(int encoderCount)
+{
+    ui->rightEncValue->setText(QString::number(encoderCount));
+}
+
+
+void MainWindow::UpdateFlipEncoder(int encoderCount)
+{
+    ui->flipEncValue->setText(QString::number(encoderCount));
+}
+
+
+void MainWindow::UpdateYaw(double yaw)
+{
+    ui->yawValue->setText(QString::number(yaw));
+}
+
+
+void MainWindow::UpdateRoll(double roll)
+{
+    ui->rollValue->setText(QString::number(roll));
+}
+
+
+void MainWindow::UpdatePitch(double pitch)
+{
+    ui->pitchValue->setText(QString::number(pitch));
+}
+
+
+void MainWindow::UpdateLogBox(std::string message)
+{
+    ui->log->appendPlainText(QString::fromStdString(message));
 }
