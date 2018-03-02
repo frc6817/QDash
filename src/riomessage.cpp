@@ -10,5 +10,5 @@ RioMessage::RioMessage(const std::string TAG, const std::string MSG) :
 
 std::string RioMessage::Message()
 {
-    return m_tag + TAG_END + m_tag + MSG_END;
+    return m_tag + TAG_END + m_msg + MSG_END;
 }

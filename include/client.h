@@ -25,12 +25,6 @@ public:
 
 
     /**
-     * @brief Runs the client, refreshes, sends, and updates continuously.
-     */
-//    void Run();
-
-
-    /**
      * @brief Queues up a RioMessage for sending
      *
      * @param MSG Message to send

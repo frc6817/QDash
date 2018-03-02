@@ -49,18 +49,12 @@ public class Server extends Thread
                 {
                     if(_server.isConnected())
                     {
-                        _out.write("Hello from Java! Hey C++, I've also got a hecka long message! But these things take " +
-                                "time so I'll just send a bunch of 0s. Here we go: 000000000000000000000000000000000000000" +
-                                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
-                                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
-                                "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" +
-                                " Wow that's a lot of 0s! That's at least two of them! Great job if you get every single one!");
+                        _out.write("Hello :)");
                         _out.flush();
-                        System.out.println("Sent!");
 
                         System.out.println(_in.readLine());
                     }
-                    Thread.sleep(2000);
+                    Thread.sleep(100);
                 }
                 catch(Exception e)
                 {

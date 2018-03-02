@@ -78,17 +78,33 @@ void Client::Tick()
             finalMessage += m_messageList[i].Message();
         }
 
-//        mp_socket->write(finalMessage.c_str());
-        mp_socket->write("Hello from C++! This is an especially long message because I need to test some things. "
-                         "Here, let me tell you a story. Once upon a time... ah whatever. This "
-                         "message is plenty long. Or maybe not? Here let's keep going. So once upon a "
-                         "time there were two penguins. One of them is called Matt. He's just a kid "
-                         "in high school, looking to make his life out of something. He likes noodles,"
-                         "robotics (that's why he's programming this!), UC Berkeley (PLEASE ACCEPT ME), "
-                         "and another penguin. This penguin is very special- the best that there is, "
-                         "smart, loving, caring, supportive, and absolutely adorable. Her name is Kassi "
-                         "(but who's Kassandra again?). Together, the two penguins work together to "
-                         "support each other, defeat AP Lit work, and make life so much better.\n");
+        finalMessage += "\n";
+
+        m_messageList.clear();
+        mp_socket->write(finalMessage.c_str());
+
         mp_socket->waitForBytesWritten();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//mp_socket->write("Hello from C++! This is an especially long message because I need to test some things. "
+//                 "Here, let me tell you a story. Once upon a time... ah whatever. This "
+//                 "message is plenty long. Or maybe not? Here let's keep going. So once upon a "
+//                 "time there were two penguins. One of them is called Matt. He's just a kid "
+//                 "in high school, looking to make his life out of something. He likes noodles,"
+//                 "robotics (that's why he's programming this!), UC Berkeley (PLEASE ACCEPT ME), "
+//                 "and another penguin. This penguin is very special- the best that there is, "
+//                 "smart, loving, caring, supportive, and absolutely adorable. Her name is Kassi "
+//                 "(but who's Kassandra again?). Together, the two penguins work together to "
+//                 "support each other, defeat AP Lit work, and make life so much better.\n");

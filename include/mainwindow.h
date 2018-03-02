@@ -29,6 +29,10 @@ private slots:
 
     void on_drivetrainPrecisionSlider_valueChanged(int value);
 
+    void UpdateServerFromUi();
+
+    void on_drivetrainSlider_valueChanged(int value);
+
 private:
     const QUrl _cameraUrl;
 

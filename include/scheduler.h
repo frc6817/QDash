@@ -10,7 +10,7 @@ class Scheduler : public QThread
     Q_OBJECT
 
 public:
-    explicit Scheduler(QObject *parent = nullptr , int tickRate = 2000);
+    explicit Scheduler(QObject *parent = nullptr , int tickRate = 100);
 
 
     void run();
