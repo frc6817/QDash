@@ -103,8 +103,12 @@ void MainWindow::UpdateServerFromUi()
 {
     if(!mp_client->SentThisHandshake())
     {
+        mp_client->AddMessage(RioMessage("Pos" , ui->startPosBox->currentText().toStdString()));
+        mp_client->AddMessage(RioMessage("Delay" , ui->delayEdit->text().toStdString()));
         mp_client->AddMessage(RioMessage("Drive" , std::to_string(ui->drivetrainSlider->value())));
         mp_client->AddMessage(RioMessage("PDrive" , std::to_string(ui->drivetrainPrecisionSlider->value())));
+        mp_client->AddMessage(RioMessage("Flip" , std::to_string(ui->flipperSlider->value())));
+        mp_client->AddMessage(RioMessage("Fly" , std::to_string(ui->flywheelThrottle->value())));
     }
 }
 

@@ -115,7 +115,7 @@
                 <string>&amp;Starting Position:</string>
                </property>
                <property name="buddy">
-                <cstring>comboBox</cstring>
+                <cstring>startPosBox</cstring>
                </property>
               </widget>
              </item>
@@ -133,7 +133,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QComboBox" name="comboBox">
+              <widget class="QComboBox" name="startPosBox">
                <item>
                 <property name="text">
                  <string>Left</string>
@@ -161,7 +161,7 @@
                 <string>Start &amp;Delay (ms):</string>
                </property>
                <property name="buddy">
-                <cstring>lineEdit</cstring>
+                <cstring>delayEdit</cstring>
                </property>
               </widget>
              </item>
@@ -179,7 +179,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit">
+              <widget class="QLineEdit" name="delayEdit">
                <property name="maximumSize">
                 <size>
                  <width>100</width>
@@ -762,7 +762,11 @@
           </property>
           <layout class="QGridLayout" name="gridLayout_3">
            <item row="0" column="0">
-            <widget class="QPlainTextEdit" name="log"/>
+            <widget class="QPlainTextEdit" name="log">
+             <property name="readOnly">
+              <bool>true</bool>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
