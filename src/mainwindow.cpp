@@ -5,7 +5,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) ,
-    _cameraUrl(QUrl("http://roborio-6817-frc.local:1181/?action=stream"))
+    m_CAMERA_URL(QUrl("http://roborio-6817-frc.local:1181/?action=stream"))
 {
     ui->setupUi(this);
 
@@ -15,43 +15,29 @@ MainWindow::MainWindow(QWidget *parent) :
     mp_scheduler = new Scheduler();
     mp_notifier = new Notifier;
 
-
-    connect(mp_client , SIGNAL(ClientConnected()) , mp_ind , SLOT(SetConnected()));
-    connect(mp_client , SIGNAL(ClientDisconnected()) , mp_ind , SLOT(SetDisconnected()));
-    connect(mp_scheduler , SIGNAL(tick()) , mp_client , SLOT(Tick()));
-    connect(mp_scheduler , SIGNAL(tick()) , this , SLOT(UpdateServerFromUi()));
-
-    connect(mp_notifier , SIGNAL(NotifyLeftEncoder(int)) , this , SLOT(UpdateLeftEncoder(int)));
-    connect(mp_notifier , SIGNAL(NotifyRightEncoder(int)) , this , SLOT(UpdateRightEncoder(int)));
-    connect(mp_notifier , SIGNAL(NotifyFlipperEncoder(int)) , this , SLOT(UpdateFlipEncoder(int)));
-    connect(mp_notifier , SIGNAL(NotifyYaw(double)) , this , SLOT(UpdateYaw(double)));
-    connect(mp_notifier , SIGNAL(NotifyRoll(double)) , this , SLOT(UpdateRoll(double)));
-    connect(mp_notifier , SIGNAL(NotifyPitch(double)) , this , SLOT(UpdatePitch(double)));
-    connect(mp_notifier , SIGNAL(NotifyLog(std::string)) , this , SLOT(UpdateLogBox(std::string)));
-
     mp_scheduler->start();
-
-
-    ui->cameraView->load(_cameraUrl);
-    ui->cameraView->show();
-    ui->cameraView->setZoomFactor(5);
-
-
     mp_ind->SetDisconnected();
     mp_client->Connect();
+
+    ConnectSignalsAndSlots();
+    SetupCameraView();
 }
 
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete mp_scene;
+    delete mp_ind;
+    delete mp_scheduler;
+    delete mp_notifier;
+    delete mp_client;
 }
 
 
 void MainWindow::on_refreshButton_clicked()
 {
-    ui->cameraView->load(_cameraUrl);
-    mp_client->Connect();
+    ui->cameraView->load(m_CAMERA_URL);
 }
 
 
@@ -126,4 +112,33 @@ void MainWindow::UpdatePitch(double pitch)
 void MainWindow::UpdateLogBox(std::string message)
 {
     ui->log->appendPlainText(QString::fromStdString(message));
+}
+
+
+void MainWindow::ConnectSignalsAndSlots()
+{
+    // Indicator
+    connect(mp_client , SIGNAL(ClientConnected()) , mp_ind , SLOT(SetConnected()));
+    connect(mp_client , SIGNAL(ClientDisconnected()) , mp_ind , SLOT(SetDisconnected()));
+
+    // Scheduler
+    connect(mp_scheduler , SIGNAL(tick()) , mp_client , SLOT(Tick()));
+    connect(mp_scheduler , SIGNAL(tick()) , this , SLOT(UpdateServerFromUi()));
+
+    // UI Updates
+    connect(mp_notifier , SIGNAL(NotifyLeftEncoder(int)) , this , SLOT(UpdateLeftEncoder(int)));
+    connect(mp_notifier , SIGNAL(NotifyRightEncoder(int)) , this , SLOT(UpdateRightEncoder(int)));
+    connect(mp_notifier , SIGNAL(NotifyFlipperEncoder(int)) , this , SLOT(UpdateFlipEncoder(int)));
+    connect(mp_notifier , SIGNAL(NotifyYaw(double)) , this , SLOT(UpdateYaw(double)));
+    connect(mp_notifier , SIGNAL(NotifyRoll(double)) , this , SLOT(UpdateRoll(double)));
+    connect(mp_notifier , SIGNAL(NotifyPitch(double)) , this , SLOT(UpdatePitch(double)));
+    connect(mp_notifier , SIGNAL(NotifyLog(std::string)) , this , SLOT(UpdateLogBox(std::string)));
+}
+
+
+void MainWindow::SetupCameraView()
+{
+    ui->cameraView->load(m_CAMERA_URL);
+    ui->cameraView->show();
+    ui->cameraView->setZoomFactor(5);
 }
