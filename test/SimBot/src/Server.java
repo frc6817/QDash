@@ -49,7 +49,7 @@ public class Server extends Thread
                 {
                     if(_server.isConnected())
                     {
-                        _out.write("Hello :)");
+                        _out.write("Log|Hello There`");
                         _out.flush();
 
                         System.out.println(_in.readLine());

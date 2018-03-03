@@ -12,14 +12,6 @@ public:
     Notifier() = default;
 
 
-    /**
-     * @brief Notifies (updates) UI based on message received via the Client
-     *
-     * @param message Raw message to be interpreted and notify from
-     */
-    void NotifyUI(std::string message);
-
-
 signals:
     /**
      * @brief Notifies the UI of the current left encoder count
@@ -76,6 +68,15 @@ signals:
      * @param message Message to sent to the log box
      */
     void NotifyLog(std::string message);
+
+
+public slots:
+    /**
+     * @brief Notifies (updates) UI based on message received via the Client
+     *
+     * @param message Raw message to be interpreted and notify from
+     */
+    void NotifyUI(std::string message);
 };
 
 #endif // NOTIFIER_H

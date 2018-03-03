@@ -166,6 +166,8 @@ void MainWindow::ConnectSignalsAndSlots()
     connect(mp_scheduler , SIGNAL(tick()) , this , SLOT(UpdateServerFromUi()));
 
     // UI Updates
+    connect(mp_client , SIGNAL(MessageReceived(std::string)) , mp_notifier , SLOT(NotifyUI(std::string)));
+
     connect(mp_notifier , SIGNAL(NotifyLeftEncoder(int)) , this , SLOT(UpdateLeftEncoder(int)));
     connect(mp_notifier , SIGNAL(NotifyRightEncoder(int)) , this , SLOT(UpdateRightEncoder(int)));
     connect(mp_notifier , SIGNAL(NotifyFlipperEncoder(int)) , this , SLOT(UpdateFlipEncoder(int)));

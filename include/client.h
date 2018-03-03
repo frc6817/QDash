@@ -64,6 +64,14 @@ signals:
     void ClientDisconnected();
 
 
+    /**
+     * @brief Emitted whenever a message is received from the server
+     *
+     * @param message Received message
+     */
+    void MessageReceived(std::string message);
+
+
 public slots:
     void Connected();
 

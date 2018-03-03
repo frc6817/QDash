@@ -72,7 +72,7 @@ void Client::ReadyRead()
 {
     if(!m_receivedThisHandshake)
     {
-        qDebug() << mp_socket->readLine() << endl;
+        emit MessageReceived(mp_socket->readLine().toStdString());
 
         m_receivedThisHandshake = true;
     }
