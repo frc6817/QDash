@@ -10,6 +10,7 @@
 #include "indicator.h"
 #include "client.h"
 #include "notifier.h"
+#include "matchtimer.h"
 
 
 namespace Ui

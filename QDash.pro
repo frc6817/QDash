@@ -38,7 +38,8 @@ SOURCES += \
     src/indicator.cpp \
     src/riomessage.cpp \
     src/scheduler.cpp \
-    src/notifier.cpp
+    src/notifier.cpp \
+    src/matchtimer.cpp
 
 HEADERS += \
         include/mainwindow.h \
@@ -46,7 +47,8 @@ HEADERS += \
     include/indicator.h \
     include/riomessage.h \
     include/scheduler.h \
-    include/notifier.h
+    include/notifier.h \
+    include/matchtimer.h
 
 FORMS += \
         forms/mainwindow.ui

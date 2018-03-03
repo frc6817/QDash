@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>2000</width>
-    <height>800</height>
+    <height>1000</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -88,7 +88,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="configTab">
        <attribute name="title">
@@ -531,12 +531,22 @@
         <string>Telemetry</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_7">
-        <item row="0" column="0">
+        <item row="0" column="0" colspan="2">
+         <widget class="MatchTimer" name="lcdNumber">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>400</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
          <widget class="QGraphicsView" name="indicator">
           <property name="maximumSize">
            <size>
-            <width>750</width>
-            <height>750</height>
+            <width>500</width>
+            <height>500</height>
            </size>
           </property>
           <property name="verticalScrollBarPolicy">
@@ -547,7 +557,7 @@
           </property>
          </widget>
         </item>
-        <item row="0" column="1">
+        <item row="1" column="1">
          <widget class="QGroupBox" name="groupBox_3">
           <property name="minimumSize">
            <size>
@@ -755,8 +765,14 @@
           </layout>
          </widget>
         </item>
-        <item row="1" column="0" colspan="2">
+        <item row="2" column="0" colspan="2">
          <widget class="QGroupBox" name="logBox">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>300</height>
+           </size>
+          </property>
           <property name="title">
            <string>Log</string>
           </property>
@@ -804,6 +820,11 @@
    <extends>QWidget</extends>
    <header>qwebengineview.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>MatchTimer</class>
+   <extends>QLCDNumber</extends>
+   <header>matchtimer.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
