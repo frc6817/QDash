@@ -41,9 +41,26 @@ void MainWindow::on_refreshButton_clicked()
 }
 
 
+void MainWindow::on_drivetrainSlider_valueChanged(int value)
+{
+    ui->drivetrainEdit->setText(QString::number(value));
+
+    if(ui->drivetrainPrecisionSlider->value() > value)
+    {
+        ui->drivetrainPrecisionSlider->setValue(value);
+    }
+}
+
+
+void MainWindow::on_drivetrainEdit_editingFinished()
+{
+    ui->drivetrainSlider->setValue(ui->drivetrainEdit->text().toInt());
+}
+
+
 void MainWindow::on_drivetrainPrecisionSlider_valueChanged(int value)
 {
-    ui->drivetrainPrecisionLabel->setText(QString::number(value) + "%");
+    ui->drivetrainPrecisionEdit->setText(QString::number(value));
 
     if(value > ui->drivetrainSlider->value())
     {
@@ -52,14 +69,33 @@ void MainWindow::on_drivetrainPrecisionSlider_valueChanged(int value)
 }
 
 
-void MainWindow::on_drivetrainSlider_valueChanged(int value)
+void MainWindow::on_drivetrainPrecisionEdit_editingFinished()
 {
-    ui->drivetrainThrottleLabel->setText(QString::number(value) + "%");
+    ui->drivetrainPrecisionSlider->setValue(ui->drivetrainPrecisionEdit->text().toInt());
+}
 
-    if(ui->drivetrainPrecisionSlider->value() > value)
-    {
-        ui->drivetrainPrecisionSlider->setValue(value);
-    }
+
+void MainWindow::on_flipperSlider_valueChanged(int value)
+{
+    ui->flipperEdit->setText(QString::number(value));
+}
+
+
+void MainWindow::on_flipperEdit_editingFinished()
+{
+    ui->flipperSlider->setValue(ui->flipperEdit->text().toInt());
+}
+
+
+void MainWindow::on_flywheelThrottle_valueChanged(int value)
+{
+    ui->flywheelEdit->setText(QString::number(value));
+}
+
+
+void MainWindow::on_flywheelEdit_editingFinished()
+{
+    ui->flywheelThrottle->setValue(ui->flywheelEdit->text().toInt());
 }
 
 

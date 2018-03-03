@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc0741bd-e774-47ec-8f19-7a27279c7415" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../include/notifier.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../src/notifier.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../QDash.pro" afterPath="$PROJECT_DIR$/../../QDash.pro" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../forms/mainwindow.ui" afterPath="$PROJECT_DIR$/../../forms/mainwindow.ui" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/mainwindow.h" afterPath="$PROJECT_DIR$/../../include/mainwindow.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../include/riomessage.h" afterPath="$PROJECT_DIR$/../../include/riomessage.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../src/mainwindow.cpp" afterPath="$PROJECT_DIR$/../../src/mainwindow.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../src/riomessage.cpp" afterPath="$PROJECT_DIR$/../../src/riomessage.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="cc0741bd-e774-47ec-8f19-7a27279c7415" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

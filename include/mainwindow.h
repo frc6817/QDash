@@ -50,8 +50,24 @@ private slots:
 
 
     /**
+     * @brief Changes the value of the drivetrain normal throttle slider.
+     * Adjusts the value of the corresponding text edit. If the slider is
+     * moved such that it is less than the drivetrain precision throttle slider,
+     * the drivetrain precision throttle decreases with this. The drivetrain precision
+     * throttle can never be greater than noraml drivetrain throttle.
+     *
+     * @param value Value to set normal throttle to- this is a percent value between
+     * 0 and 100
+     */
+    void on_drivetrainSlider_valueChanged(int value);
+
+
+    void on_drivetrainEdit_editingFinished();
+
+
+    /**
      * @brief Changes the value of the drivetrain precision throttle slider.
-     * Adjusts the value of the corresponding label. If the slider is
+     * Adjusts the value of the corresponding text edit. If the slider is
      * moved such that it is greater than the drivetrain throttle slider, the
      * drivetrain throttle increases with this. The drivetrain throttle can never
      * be lower than precision throttle.
@@ -62,17 +78,19 @@ private slots:
     void on_drivetrainPrecisionSlider_valueChanged(int value);
 
 
-    /**
-     * @brief Changes the value of the drivetrain normal throttle slider.
-     * Adjusts the value of the corresponding label. If the slider is
-     * moved such that it is less than the drivetrain precision throttle slider,
-     * the drivetrain precision throttle decreases with this. The drivetrain precision
-     * throttle can never be greater than noraml drivetrain throttle.
-     *
-     * @param value Value to set normal throttle to- this is a percent value between
-     * 0 and 100
-     */
-    void on_drivetrainSlider_valueChanged(int value);
+    void on_drivetrainPrecisionEdit_editingFinished();
+
+
+    void on_flipperSlider_valueChanged(int value);
+
+
+    void on_flipperEdit_editingFinished();
+
+
+    void on_flywheelThrottle_valueChanged(int value);
+
+
+    void on_flywheelEdit_editingFinished();
 
 
     /**

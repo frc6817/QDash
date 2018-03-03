@@ -5,4 +5,10 @@ Yaw- yaw
 Roll- roll
 Pitch- pitch
 
+Delay- start delay
+Pos- starting position
+Drive- normal drive throttle
+PDrive- precision drive throttle
+
+
 ** EVERYTHING ELSE GOES TO THE LOG BOX **
