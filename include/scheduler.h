@@ -9,10 +9,17 @@ class Scheduler : public QThread
 {
     Q_OBJECT
 
+
 public:
     explicit Scheduler(QObject *parent = nullptr , int tickRate = 100);
 
 
+    /**
+     * @brief Runs the scheduler at the tickrate specified- this is executed on a
+     * separate thread. At each tick, the tick signal is emitted. This method
+     * DOES NOT emit immediately- the first tick occurs after the specified tickrate
+     * has elapsed.
+     */
     void run();
 
 
@@ -27,7 +34,7 @@ signals:
      */
     void tick();
 
-public slots:
+
 };
 
 

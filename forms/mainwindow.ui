@@ -532,12 +532,15 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_7">
         <item row="0" column="0" colspan="2">
-         <widget class="MatchTimer" name="lcdNumber">
+         <widget class="MatchTimer" name="matchTimer">
           <property name="minimumSize">
            <size>
             <width>0</width>
             <height>400</height>
            </size>
+          </property>
+          <property name="digitCount">
+           <number>4</number>
           </property>
          </widget>
         </item>

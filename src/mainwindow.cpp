@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     mp_ind->SetDisconnected();
     mp_client->Connect();
 
+    ui->matchTimer->DisplayTime(2 , 30);
+
     ConnectSignalsAndSlots();
     SetupCameraView();
 }
