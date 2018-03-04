@@ -62,7 +62,11 @@
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QWebEngineView" name="cameraView" native="true"/>
+        <widget class="QWebEngineView" name="cameraView" native="true">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -545,7 +549,7 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QGraphicsView" name="indicator">
+         <widget class="Indicator" name="indicator">
           <property name="maximumSize">
            <size>
             <width>500</width>
@@ -828,6 +832,11 @@
    <class>MatchTimer</class>
    <extends>QLCDNumber</extends>
    <header>matchtimer.h</header>
+  </customwidget>
+  <customwidget>
+   <class>Indicator</class>
+   <extends>QGraphicsView</extends>
+   <header>indicator.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
