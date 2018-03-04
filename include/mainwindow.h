@@ -55,7 +55,7 @@ private slots:
      * Adjusts the value of the corresponding text edit. If the slider is
      * moved such that it is less than the drivetrain precision throttle slider,
      * the drivetrain precision throttle decreases with this. The drivetrain precision
-     * throttle can never be greater than noraml drivetrain throttle.
+     * throttle can never be greater than normal drivetrain throttle.
      *
      * @param value Value to set normal throttle to- this is a percent value between
      * 0 and 100
@@ -63,6 +63,14 @@ private slots:
     void on_drivetrainSlider_valueChanged(int value);
 
 
+    /**
+     * @brief Changes the value of the drivetrain normal throttle text edit.
+     * Also adjusts the value of the corresponding slider to match the value
+     * of the text edit. If the value is adjusted to a lower value than that
+     * of the precision throttle, then the precision throttle is lowered until
+     * it matches. The precision throttle can never be greater than normal
+     * drivetrain throttle.
+     */
     void on_drivetrainEdit_editingFinished();
 
 
@@ -79,18 +87,50 @@ private slots:
     void on_drivetrainPrecisionSlider_valueChanged(int value);
 
 
+    /**
+     * @brief Changes the value of the drivetrain precision throttle text edit.
+     * Also adjusts the value of the corresponding slider to match the value
+     * of the text edit. If the value is adjusted to a higher value than that
+     * of the normal throttle, then the normal throttle is increased until
+     * it matches. The normal throttle can never be less than precision
+     * drivetrain throttle.
+     */
     void on_drivetrainPrecisionEdit_editingFinished();
 
 
+    /**
+     * @brief Changes the value of the flipper throttle slider. Adjusts the
+     * value of the corresponding text edit to match the slider value.
+     *
+     * @param value Value to set throttle to- this is a percent value between
+     * 0 and 100
+     */
     void on_flipperSlider_valueChanged(int value);
 
 
+    /**
+     * @brief Changes the value of the flipper throttle text edit.
+     * Also adjusts the value of the corresponding slider to match the value
+     * of the text edit.
+     */
     void on_flipperEdit_editingFinished();
 
 
+    /**
+     * @brief Changes the value of the flywheel throttle slider. Adjusts the
+     * value of the corresponding text edit to match the slider value.
+     *
+     * @param value Value to set throttle to- this is a percent value between
+     * 0 and 100
+     */
     void on_flywheelThrottle_valueChanged(int value);
 
 
+    /**
+     * @brief Changes the value of the flywheel throttle text edit.
+     * Also adjusts the value of the corresponding slider to match the value
+     * of the text edit.
+     */
     void on_flywheelEdit_editingFinished();
 
 
