@@ -7,7 +7,6 @@
 #include <thread>
 #include <chrono>
 
-#include "indicator.h"
 #include "riomessage.h"
 
 
@@ -15,7 +14,7 @@ class Client : public QObject
 {
     Q_OBJECT
 public:
-    explicit Client(QObject *parent = nullptr , Indicator *indicator = nullptr);
+    explicit Client(QObject *parent = nullptr);
 
 
     /**
@@ -47,7 +46,6 @@ private:
     bool m_sentThisHandshake;
     bool m_receivedThisHandshake;
 
-    Indicator *mp_indicator;
     std::vector<RioMessage> m_messageList;
 
 

@@ -9,14 +9,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    mp_scene = new QGraphicsScene(this);
-    mp_ind = new Indicator(ui->indicator , mp_scene);
-    mp_client = new Client(nullptr , mp_ind);
+    mp_client = new Client();
     mp_scheduler = new Scheduler();
     mp_notifier = new Notifier;
 
     mp_scheduler->start();
-    mp_ind->SetDisconnected();
+    ui->indicator->SetDisconnected();
+
     mp_client->Connect();
 
     ui->matchTimer->DisplayTime(2 , 30);
@@ -29,8 +28,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete mp_scene;
-    delete mp_ind;
     delete mp_scheduler;
     delete mp_notifier;
     delete mp_client;
@@ -160,8 +157,8 @@ void MainWindow::UpdateLogBox(std::string message)
 void MainWindow::ConnectSignalsAndSlots()
 {
     // Indicator
-    connect(mp_client , SIGNAL(ClientConnected()) , mp_ind , SLOT(SetConnected()));
-    connect(mp_client , SIGNAL(ClientDisconnected()) , mp_ind , SLOT(SetDisconnected()));
+    connect(mp_client , SIGNAL(ClientConnected()) , ui->indicator , SLOT(SetConnected()));
+    connect(mp_client , SIGNAL(ClientDisconnected()) , ui->indicator , SLOT(SetDisconnected()));
 
     // Scheduler
     connect(mp_scheduler , SIGNAL(tick()) , mp_client , SLOT(Tick()));

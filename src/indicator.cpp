@@ -2,11 +2,10 @@
 
 #include <QtCore>
 
-Indicator::Indicator(QGraphicsView *view , QGraphicsScene *scene) :
-    mp_view(view) ,
-    mp_scene(scene)
-{
 
+Indicator::Indicator(QWidget *parent)
+{
+    mp_scene = new QGraphicsScene(parent);
 }
 
 
@@ -25,5 +24,5 @@ void Indicator::SetDisconnected()
 void Indicator::SetIndicatorColor(QColor color)
 {
     mp_scene->addRect(0 , 0 , 5000 , 5000 , QPen() , QBrush(color));
-    mp_view->setScene(mp_scene);
+    setScene(mp_scene);
 }

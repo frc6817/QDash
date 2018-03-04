@@ -7,16 +7,15 @@
 #include <QGraphicsRectItem>
 
 
-class Indicator: public QObject
+class Indicator: public QGraphicsView
 {
     Q_OBJECT
 
 public:
-    Indicator(QGraphicsView *view , QGraphicsScene *scene);
+    Indicator(QWidget *parent = 0);
 
 
 private:
-    QGraphicsView *mp_view;
     QGraphicsScene *mp_scene;
 
 

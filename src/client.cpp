@@ -3,8 +3,7 @@
 #include <string>
 
 
-Client::Client(QObject *parent , Indicator *indicator) : QObject(parent) ,
-    mp_indicator(indicator)
+Client::Client(QObject *parent) : QObject(parent)
 {
     m_sentThisHandshake = false;
     m_receivedThisHandshake = false;
@@ -54,8 +53,7 @@ bool Client::ReceivedThisHandshake()
 void Client::Connected()
 {
     qDebug() << "Connected to rio!" << endl;
-
-    mp_indicator->SetConnected();
+    emit ClientConnected();
 }
 
 
@@ -63,8 +61,7 @@ void Client::Disconnected()
 {
     qDebug() << "Disconnected!" << endl;
     mp_socket->close();
-
-    mp_indicator->SetDisconnected();
+    emit ClientDisconnected();
 }
 
 

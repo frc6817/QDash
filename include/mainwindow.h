@@ -195,10 +195,8 @@ private:
     const QUrl m_CAMERA_URL;
 
     Ui::MainWindow *ui;
-    QGraphicsScene *mp_scene;
 
     Scheduler *mp_scheduler;
-    Indicator *mp_ind;
     Client *mp_client;
     Notifier *mp_notifier;
 
