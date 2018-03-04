@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QIntValidator>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -22,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ConnectSignalsAndSlots();
     SetupCameraView();
+    SetValidators();
 }
 
 
@@ -182,4 +185,17 @@ void MainWindow::SetupCameraView()
     ui->cameraView->load(m_CAMERA_URL);
     ui->cameraView->show();
     ui->cameraView->setZoomFactor(5);
+}
+
+
+void MainWindow::SetValidators()
+{
+    QIntValidator *delayValidator = new QIntValidator();
+    delayValidator->setBottom(0);
+    ui->delayEdit->setValidator(delayValidator);
+
+    ui->drivetrainEdit->setValidator(new QIntValidator(0 , 100));
+    ui->drivetrainPrecisionEdit->setValidator(new QIntValidator(0 , 100));
+    ui->flipperEdit->setValidator(new QIntValidator(0 , 100));
+    ui->flywheelEdit->setValidator(new QIntValidator(0 , 100));
 }

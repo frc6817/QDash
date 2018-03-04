@@ -252,6 +252,12 @@ private:
      * @brief Sets up the camera view- connecting to the HTML stream, resizing, and displaying
      */
     void SetupCameraView();
+
+
+    /**
+     * @brief Sets up input validators to prevent bad input
+     */
+    void SetValidators();
 };
 
 
