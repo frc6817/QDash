@@ -11,5 +11,8 @@ Drive- normal drive throttle
 PDrive- precision drive throttle
 Flip- flipper throttle
 Fly- flywheel throttle
+TurnP- turn command P variable
+TurnI- turn command I variable
+TurnD- turn command D variable
 
 ** EVERYTHING ELSE GOES TO THE LOG BOX **

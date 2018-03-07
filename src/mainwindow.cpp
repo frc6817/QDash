@@ -111,6 +111,9 @@ void MainWindow::UpdateServerFromUi()
         mp_client->AddMessage(RioMessage("PDrive" , std::to_string(ui->drivetrainPrecisionSlider->value())));
         mp_client->AddMessage(RioMessage("Flip" , std::to_string(ui->flipperSlider->value())));
         mp_client->AddMessage(RioMessage("Fly" , std::to_string(ui->flywheelThrottle->value())));
+        mp_client->AddMessage(RioMessage("TurnP" , ui->turnPEdit->text().toStdString()));
+        mp_client->AddMessage(RioMessage("TurnI" , ui->turnIEdit->text().toStdString()));
+        mp_client->AddMessage(RioMessage("TurnD" , ui->turnDEdit->text().toStdString()));
     }
 }
 
