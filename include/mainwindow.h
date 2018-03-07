@@ -2,15 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QGraphicsScene>
-#include <QGraphicsRectItem>
 #include <QUrl>
 
 #include "scheduler.h"
-#include "indicator.h"
 #include "client.h"
 #include "notifier.h"
-#include "matchtimer.h"
 
 
 namespace Ui

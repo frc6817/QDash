@@ -2,9 +2,7 @@
 #define INDICATOR_H
 
 
-#include <QMainWindow>
 #include <QGraphicsView>
-#include <QGraphicsRectItem>
 
 
 class Indicator: public QGraphicsView
