@@ -7,7 +7,8 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow) ,
-    m_CAMERA_URL(QUrl("http://roborio-6817-frc.local:1181/?action=stream"))
+    m_CAMERA_URL(QUrl("http://roborio-6817-frc.local:1181/?action=stream")) ,
+    m_SAVE_FILE(QString("save.txt"))
 {
     ui->setupUi(this);
 
@@ -25,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ConnectSignalsAndSlots();
     SetupCameraView();
     SetValidators();
+
+    ReadFromFile();
 }
 
 
@@ -98,6 +101,12 @@ void MainWindow::on_flywheelThrottle_valueChanged(int value)
 void MainWindow::on_flywheelEdit_editingFinished()
 {
     ui->flywheelThrottle->setValue(ui->flywheelEdit->text().toInt());
+}
+
+
+void MainWindow::on_saveButton_clicked()
+{
+    SaveToFile();
 }
 
 
@@ -201,4 +210,106 @@ void MainWindow::SetValidators()
     ui->drivetrainPrecisionEdit->setValidator(new QIntValidator(0 , 100));
     ui->flipperEdit->setValidator(new QIntValidator(0 , 100));
     ui->flywheelEdit->setValidator(new QIntValidator(0 , 100));
+}
+
+
+void MainWindow::SaveToFile()
+{
+    QFile saveFile(m_SAVE_FILE);
+
+    if(!saveFile.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        qDebug() << "Saving failed" << endl;
+        return;
+    }
+
+    QTextStream out(&saveFile);
+
+    out << ui->startPosBox->currentText() << endl;
+    out << ui->delayEdit->text() << endl;
+    out << ui->drivetrainEdit->text() << endl;
+    out << ui->drivetrainPrecisionEdit->text() << endl;
+    out << ui->flipperEdit->text() << endl;
+    out << ui->flywheelEdit->text() << endl;
+    out << ui->turnPEdit->text() << endl;
+    out << ui->turnIEdit->text() << endl;
+    out << ui->turnDEdit->text() << endl;
+
+    saveFile.close();
+}
+
+
+void MainWindow::ReadFromFile()
+{
+    QFile saveFile(m_SAVE_FILE);
+
+    if(!saveFile.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        qDebug() << "Failed to read from file. Does it exist yet? Try saving it" << endl;
+        return;
+    }
+
+
+    for(int i = 0; !saveFile.atEnd(); i ++)
+    {
+        QString currentLine = saveFile.readLine();
+        currentLine = currentLine.section("" , 0 , -3);
+
+        switch(i)
+        {
+        case 0:
+            if(currentLine == "Left")
+            {
+                ui->startPosBox->setCurrentIndex(0);
+            }
+            else if(currentLine == "Center")
+            {
+                ui->startPosBox->setCurrentIndex(1);
+            }
+            else if(currentLine == "Right")
+            {
+                ui->startPosBox->setCurrentIndex(2);
+            }
+            break;
+
+        case 1:
+            ui->delayEdit->setText(currentLine);
+            break;
+
+        case 2:
+            ui->drivetrainEdit->setText(currentLine);
+            ui->drivetrainSlider->setValue(currentLine.toInt());
+            break;
+
+        case 3:
+            ui->drivetrainPrecisionEdit->setText(currentLine);
+            ui->drivetrainPrecisionSlider->setValue(currentLine.toInt());
+            break;
+
+        case 4:
+            ui->flipperEdit->setText(currentLine);
+            ui->flipperSlider->setValue(currentLine.toInt());
+            break;
+
+        case 5:
+            ui->flywheelEdit->setText(currentLine);
+            ui->flywheelThrottle->setValue(currentLine.toInt());
+            break;
+
+        case 6:
+            ui->turnPEdit->setText(currentLine);
+            break;
+
+        case 7:
+            ui->turnIEdit->setText(currentLine);
+            break;
+
+        case 8:
+            ui->turnDEdit->setText(currentLine);
+            break;
+
+        default:
+            break;
+        }
+    }
 }

@@ -130,6 +130,9 @@ private slots:
     void on_flywheelEdit_editingFinished();
 
 
+    void on_saveButton_clicked();
+
+
     /**
      * @brief Sends messages to the TCP client. These messages update the server
      * (RoboRio) about notable changes in UI. Note that this method DOES NOT actually
@@ -230,6 +233,8 @@ private slots:
 private:
     const QUrl m_CAMERA_URL;
 
+    const QString m_SAVE_FILE;
+
     Ui::MainWindow *ui;
 
     Scheduler *mp_scheduler;
@@ -254,6 +259,12 @@ private:
      * @brief Sets up input validators to prevent bad input
      */
     void SetValidators();
+
+
+    void SaveToFile();
+
+
+    void ReadFromFile();
 };
 
 

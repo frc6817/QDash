@@ -1,3 +1,5 @@
+ROBORIO/QDASH COMMUNICATION
+
 LEnc- Left Drivetrain encoder
 REnc- Right Drivetrain encoder
 FEnc- Flip encoder
@@ -16,3 +18,18 @@ TurnI- turn command I variable
 TurnD- turn command D variable
 
 ** EVERYTHING ELSE GOES TO THE LOG BOX **
+________________________________________________________________________________
+
+QDASH FILE I/O
+
+Starting Position (Left, Center, Right)
+Start Delay (number)
+Drivetrain Throttle (number)
+Drivetrain Precision Throttle (number)
+Flipper Throttle (number)
+Flywheel Throttle (number)
+TurnP (number)
+TurnI (number)
+TurnD (number)
+
+________________________________________________________________________________
