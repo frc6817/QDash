@@ -3,6 +3,7 @@
 
 #include <QIntValidator>
 #include <QDoubleValidator>
+#include <QMessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -228,7 +229,10 @@ void MainWindow::SaveToFile()
 
     if(!saveFile.open(QIODevice::WriteOnly | QIODevice::Text))
     {
-        qDebug() << "Saving failed" << endl;
+        QMessageBox msgBox;
+        msgBox.setText("Failed to save to file. Check your write permissions.");
+        msgBox.exec();
+
         return;
     }
 
@@ -244,6 +248,11 @@ void MainWindow::SaveToFile()
     out << ui->turnIEdit->text() << endl;
     out << ui->turnDEdit->text() << endl;
 
+
+    QMessageBox msgBox;
+    msgBox.setText("Configuration saved!");
+    msgBox.exec();
+
     saveFile.close();
 }
 
@@ -254,7 +263,10 @@ void MainWindow::ReadFromFile()
 
     if(!saveFile.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        qDebug() << "Failed to read from file. Does it exist yet? Try saving it" << endl;
+        QMessageBox msgBox;
+        msgBox.setText("Failed to read from save file. Does it exist yet? Try saving first.");
+        msgBox.exec();
+
         return;
     }
 
