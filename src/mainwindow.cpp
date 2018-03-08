@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 
 #include <QIntValidator>
+#include <QDoubleValidator>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -210,6 +211,14 @@ void MainWindow::SetValidators()
     ui->drivetrainPrecisionEdit->setValidator(new QIntValidator(0 , 100));
     ui->flipperEdit->setValidator(new QIntValidator(0 , 100));
     ui->flywheelEdit->setValidator(new QIntValidator(0 , 100));
+
+
+    QDoubleValidator *pidValidator = new QDoubleValidator();
+    pidValidator->setBottom(0);
+
+    ui->turnPEdit->setValidator(pidValidator);
+    ui->turnIEdit->setValidator(pidValidator);
+    ui->turnDEdit->setValidator(pidValidator);
 }
 
 
