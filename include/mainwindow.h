@@ -230,6 +230,9 @@ private slots:
     void UpdateLogBox(std::string message);
 
 
+    void ToggleTab();
+
+
 private:
     const QUrl m_CAMERA_URL;
 
@@ -265,6 +268,9 @@ private:
 
 
     void ReadFromFile();
+
+
+    void CreateShortcuts();
 };
 
 

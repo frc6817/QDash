@@ -4,6 +4,7 @@
 #include <QIntValidator>
 #include <QDoubleValidator>
 #include <QMessageBox>
+#include <QShortcut>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -28,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ConnectSignalsAndSlots();
     SetupCameraView();
     SetValidators();
-
+    CreateShortcuts();
     ReadFromFile();
 }
 
@@ -168,6 +169,19 @@ void MainWindow::UpdatePitch(double pitch)
 void MainWindow::UpdateLogBox(std::string message)
 {
     ui->log->appendPlainText(QString::fromStdString(message));
+}
+
+
+void MainWindow::ToggleTab()
+{
+    if(ui->tabWidget->currentIndex() == 0)
+    {
+        ui->tabWidget->setCurrentIndex(1);
+    }
+    else
+    {
+        ui->tabWidget->setCurrentIndex(0);
+    }
 }
 
 
@@ -333,4 +347,10 @@ void MainWindow::ReadFromFile()
             break;
         }
     }
+}
+
+
+void MainWindow::CreateShortcuts()
+{
+    new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Space), this, SLOT(ToggleTab()));
 }
