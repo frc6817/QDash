@@ -25,6 +25,9 @@ private:
     void SetIndicatorColor(QColor color);
 
 
+    void SetAsSlow();
+
+
 public slots:
     /**
      * @brief Sets the indicator to green upon connection to RoboRio

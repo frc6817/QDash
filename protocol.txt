@@ -16,6 +16,7 @@ Fly- flywheel throttle
 TurnP- turn command P variable
 TurnI- turn command I variable
 TurnD- turn command D variable
+Slow- drivetrain precision mode 0 or 1, 0 being off 1 being on
 
 ** EVERYTHING ELSE GOES TO THE LOG BOX **
 ________________________________________________________________________________

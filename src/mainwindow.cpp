@@ -166,6 +166,19 @@ void MainWindow::UpdatePitch(double pitch)
 }
 
 
+void MainWindow::UpdateIndicator(bool isSlow)
+{
+    if(isSlow)
+    {
+        ui->indicator->SetAsSlow();
+    }
+    else
+    {
+        ui->indicator->SetConnected();
+    }
+}
+
+
 void MainWindow::UpdateLogBox(std::string message)
 {
     ui->log->appendPlainText(QString::fromStdString(message));
@@ -204,6 +217,7 @@ void MainWindow::ConnectSignalsAndSlots()
     connect(mp_notifier , SIGNAL(NotifyYaw(double)) , this , SLOT(UpdateYaw(double)));
     connect(mp_notifier , SIGNAL(NotifyRoll(double)) , this , SLOT(UpdateRoll(double)));
     connect(mp_notifier , SIGNAL(NotifyPitch(double)) , this , SLOT(UpdatePitch(double)));
+    connect(mp_notifier , SIGNAL(NotifyIndicator(bool)) , this , SLOT(UpdateIndicator(bool)));
     connect(mp_notifier , SIGNAL(NotifyLog(std::string)) , this , SLOT(UpdateLogBox(std::string)));
 }
 

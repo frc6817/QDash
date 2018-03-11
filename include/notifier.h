@@ -71,6 +71,9 @@ signals:
     void NotifyLog(std::string message);
 
 
+    void NotifyIndicator(bool isSlow);
+
+
 public slots:
     /**
      * @brief Notifies (updates) UI based on message received via the Client

@@ -46,6 +46,10 @@ void Notifier::NotifyUI(std::string message)
         {
             emit NotifyPitch(std::stod(currentMessage));
         }
+        else if(currentTag == "Slow")
+        {
+            emit NotifyIndicator(std::stoi(currentMessage));
+        }
         else
         {
             emit NotifyLog(currentTag + ": " + currentMessage);

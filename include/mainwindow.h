@@ -215,6 +215,10 @@ private slots:
     void UpdatePitch(double pitch);
 
 
+
+    void UpdateIndicator(bool isSlow);
+
+
     /**
      * @brief Updates the telemetry log box- this is the place for all messages sent by
      * the server (RoboRio) that don't have a specific UI element associated with them here.

@@ -26,3 +26,9 @@ void Indicator::SetIndicatorColor(QColor color)
     mp_scene->addRect(0 , 0 , 5000 , 5000 , QPen() , QBrush(color));
     setScene(mp_scene);
 }
+
+
+void Indicator::SetAsSlow()
+{
+    SetIndicatorColor(Qt::blue);
+}
