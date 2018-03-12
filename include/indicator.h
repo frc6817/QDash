@@ -13,6 +13,9 @@ public:
     Indicator(QWidget *parent = 0);
 
 
+    void SetAsSlow();
+
+
 private:
     QGraphicsScene *mp_scene;
 
@@ -23,9 +26,6 @@ private:
      * @param Color to set the indicator to
      */
     void SetIndicatorColor(QColor color);
-
-
-    void SetAsSlow();
 
 
 public slots:
